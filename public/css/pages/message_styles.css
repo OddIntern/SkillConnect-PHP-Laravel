@@ -1,0 +1,141 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f8fafc;
+}
+
+.gradient-bg {
+    background: linear-gradient(135deg, #3b82f6 0%, #10b981 100%);
+}
+
+.message-container {
+    height: calc(100vh - 200px); /* Adjusted to ensure it fits typical viewports better */
+    overflow-y: auto;
+}
+
+.conversation-item:hover {
+    background-color: #f1f5f9; /* Tailwind slate-100 */
+}
+
+.message-input:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px #bfdbfe; /* Tailwind blue-200 focus ring */
+}
+
+.unread-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #3b82f6; /* Tailwind blue-500 */
+    color: white;
+    font-size: 0.65rem; /* Slightly smaller for better fit */
+    font-weight: 600; /* semibold */
+}
+
+.message-bubble {
+    max-width: 70%;
+    border-radius: 1rem; /* rounded-xl */
+    padding: 0.75rem 1rem; /* py-3 px-4 */
+    margin-bottom: 0.5rem; /* mb-2 */
+    position: relative;
+    word-wrap: break-word; /* Ensure long words break */
+}
+
+.message-bubble.sent {
+    background-color: #3b82f6; /* Tailwind blue-500 */
+    color: white;
+    align-self: flex-end;
+    border-bottom-right-radius: 0.25rem; /* rounded-br-sm */
+}
+
+.message-bubble.received {
+    background-color: #e2e8f0; /* Tailwind slate-200 */
+    color: #1e293b; /* Tailwind slate-800 */
+    align-self: flex-start;
+    border-bottom-left-radius: 0.25rem; /* rounded-bl-sm */
+}
+
+.typing-indicator {
+    display: none; /* Hidden by default, shown by JS */
+    align-items: center;
+    padding: 0.5rem 1rem; /* py-2 px-4 */
+    background-color: #e2e8f0; /* Tailwind slate-200 */
+    border-radius: 1rem; /* rounded-xl */
+    width: fit-content;
+    margin-bottom: 0.5rem; /* mb-2 */
+}
+
+.typing-dot {
+    width: 8px;
+    height: 8px;
+    background-color: #64748b; /* Tailwind slate-500 */
+    border-radius: 50%;
+    margin: 0 2px;
+    animation: typingAnimation 1.4s infinite ease-in-out;
+}
+
+.typing-dot:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.typing-dot:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.typing-dot:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+@keyframes typingAnimation {
+    0%, 60%, 100% {
+        transform: translateY(0);
+    }
+    30% {
+        transform: translateY(-5px);
+    }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1; /* Lighter gray */
+}
+
+::-webkit-scrollbar-thumb {
+    background: #cbd5e1; /* Tailwind slate-300 */
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8; /* Tailwind slate-400 */
+}
+
+.active-conversation {
+    background-color: #e0f2fe; /* Tailwind blue-100 */
+    border-left: 3px solid #3b82f6; /* Tailwind blue-500 */
+}
+
+/* Additional styles for navigation from other files if needed for consistency */
+.avatar-ring { /* From index.html for user avatar */
+    border: 3px solid #3b82f6;
+}
+.tab-active { /* From index.html for nav tabs */
+    border-bottom: 3px solid #3b82f6;
+    color: #3b82f6;
+    font-weight: 600;
+}
+.pulse { /* From index.html for notification pulse */
+    animation: pulse 2s infinite;
+}
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
